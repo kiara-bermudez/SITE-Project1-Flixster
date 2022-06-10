@@ -46,26 +46,52 @@ async function getSearchedMovies(searchTerm) {
     
 }
 
+async function getMovieTrailers(movieID) {
+    let trailerUrl = "https://api.themoviedb.org/3/movie/" + movieID + "/videos?api_key=" 
+    + API_KEY + "&language=en-US";
+
+    let response = await fetch(trailerUrl);
+    let responseData = await response.json();
+
+    return responseData.results;
+}
+
 // Display the movies
 function displayMovies(moviesData) {
+    let posterPath = "";
     moviesData.forEach(movie => {
+        console.log("movie",movie);
+        let trailerResults = getMovieTrailers(movie.id);
+        console.log("trailer",trailerResults);
+
         if (movie.poster_path != null) {
-            movieGridDiv.innerHTML += `
-                <div class="movie-card">
-                    <img class="movie-poster" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}"
-                    <p class="movie-votes">⭐ ${movie.vote_average}</p>
-                    <p class="movie-title">${movie.title}</p>
-                </div>
-            ` 
+            posterPath = "https://image.tmdb.org/t/p/w500/" + movie.poster_path;
         } else {
-            movieGridDiv.innerHTML += `
-                <div class="movie-card">
-                    <img class="movie-poster" src="No_Poster.png"
-                    <p class="movie-votes">⭐ ${movie.vote_average}</p>
-                    <p class="movie-title">${movie.title}</p>
-                </div>
-            ` 
+            posterPath = "No_Poster.png";
         }
+
+        console.log("https://image.tmdb.org/t/p/w500/"+movie.backdrop_path);
+
+        movieGridDiv.innerHTML += `
+        
+            <div class="movie-card ${movie.id}">
+                <img class="movie-poster ${movie.id}" src=${posterPath}
+                <p class="movie-votes ${movie.id}">⭐ ${movie.vote_average}</p>
+                <p class="movie-title ${movie.id}">${movie.title}</p>
+            </div>
+        
+            <div class="modal" id="modal-${movie.id}" >
+                <div class="modal-content" id="modal-content'${movie.id}" >
+                    <span class="close ${movie.id}" id="close-${movie.id}">&times;</span>
+                    <img class="backdrop-image" src="https://image.tmdb.org/t/p/w500/${movie.backdrop_path}">
+                    <h3 class="${movie.id}"> ${movie.title} </h3>
+                    <p>⭐ ${movie.vote_average} / 10</p>
+                    <p>Released: ${movie.release_date}</p>
+                    <p>${movie.overview}<p>
+                </div>
+            </div>
+        ` 
+
         
     });
     
@@ -118,6 +144,27 @@ async function handleLoadMoreClick(event) {
 }
 
 loadMoreButton.addEventListener("click", handleLoadMoreClick);
+
+// Get the modal
+
+
+document.addEventListener("click", (event) => {
+    if (event.target.matches(".movie-card") || event.target.matches(".movie-poster") || event.target.matches(".movie-title") || event.target.matches(".movie-votes")) {
+        console.log("here", event.target.classList[1]);
+        console.log("here2", "modal-"+event.target.classList[1])
+        let modal = document.getElementById("modal-"+event.target.classList[1]);
+        console.log("here", modal);
+        modal.style.display = "block";
+    }
+
+    if(event.target.matches(".close") ) {
+        let modal = document.getElementById("modal-"+event.target.classList[1]);
+        modal.style.display = "none";
+
+    }
+}) 
+
+
 
 window.onload = async function() {
     let results = await getCurrentMovies();
