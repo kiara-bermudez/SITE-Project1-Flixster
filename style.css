@@ -46,6 +46,7 @@ input[type=text] {
     color: white;
     margin-left: 36%;
     box-shadow: #f6e27a 0 15px 30px -5px;
+    min-width: 175px;
 }
 .hidden {
     display: none !important;
@@ -60,10 +61,16 @@ input[type=text] {
     height: 45px;
     border-radius: 10px;
     width: 5% !important;
-    font-size: 13px;
+    font-size: 12px;
     float:right;
     margin-right: 37%;
     font-weight: bold;
+    min-width: 58px;
+    text-align: center;
+}
+
+.trailer {
+
 }
 
 /*Source for span content: */
@@ -129,6 +136,8 @@ input[type=text] {
      #462523 100%
      );
     border-radius: 15px;
+    min-width: 210px;
+    min-height: 420px;
 }
 
 .movie-card img {
@@ -203,6 +212,13 @@ input[type=text] {
     width: 90%; /* Could be more or less, depending on screen size */
     height: 60%;
     color: white;
+  }
+
+  .trailer {
+      min-width: 300px;
+      min-height: 150px;
+      width: 80%;
+      height: 100%;
   }
   
   @keyframes zoom {

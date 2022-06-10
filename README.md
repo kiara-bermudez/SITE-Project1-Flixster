@@ -37,7 +37,7 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 - [X] Deploy website using GitHub Pages. 
 - [X] Allow user to view more details about a movie within a popup.
 - [X] Improve the user experience through CSS & animation.
-- [ ] Allow movie video trailers to be played using [embedded YouTube](https://support.google.com/youtube/answer/171780?hl=en)
+- [X] Allow movie video trailers to be played using [embedded YouTube](https://support.google.com/youtube/answer/171780?hl=en)
 - [ ] Implement anything else that you can get done to improve the app functionality!
 
 ### Walkthrough Video
@@ -50,15 +50,15 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+The labs were definitely helpful, they were the main reason I was able to implement all of the required features. The lab 1 helped me with the basic html and css and lab 2 helped me with using innerHTML, forEach and more javascript. Lab 3 gave me the tools I needed for the grid layout of my website, the api javascript functions, the buttons and using javascript to get them to work, the search bar and features, and flex features for css styling. Lab 3 helped me the most as it had many similar features to this project. What I had no idea how to do was the pop up for the stretch feature since we hadn't gone over it, but I was able to use the extra resources to finish it.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-Add your response here
+First of all, I want to add the youtube video to my popup. I wanted it to work so that if a movie had a trailer, it would show up at the top of the popup and if not, it would just show the movie image. Also, I would like to polish my CSS, make my UI look more professional. Furthermore, I would have liked to make it so that there were more movie options, like a recommended section or a random movie section. Finally, I would have liked to clean up my code, because it was messy and I don't think I added enough comments.
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+I think my project demo went great. I showed off all of the features that I wanted to. One of the features I liked the most from my peers was a sticky header, so that no matter how far you scrolled, you could still see the search bar. I also liked how some people had a button that let took you back to the top of the page.  
 
 ### Open-source libraries used
 
@@ -67,3 +67,4 @@ Add your response here
 ### Shout out
 
 Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+I want to shoutout the TA Snighda Singh. Although she didn't work with me on this project, her help on my Lab 3 was essential for me having the knowledge I need for this project. I'd also like to thank my two partners Andy Cordero and Gabriel Bremo for their help on this project!

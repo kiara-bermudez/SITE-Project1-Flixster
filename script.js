@@ -53,21 +53,34 @@ async function getMovieTrailers(movieID) {
     let response = await fetch(trailerUrl);
     let responseData = await response.json();
 
-    return responseData.results;
+    console.log("trailer response data",responseData.results[0].key);
+    return responseData.results[0].key;
 }
 
+
 // Display the movies
-function displayMovies(moviesData) {
+async function displayMovies(moviesData) {
     let posterPath = "";
-    moviesData.forEach(movie => {
+    moviesData.forEach(async movie => {
         console.log("movie",movie);
-        let trailerResults = getMovieTrailers(movie.id);
-        console.log("trailer",trailerResults);
+        let trailerKey = await getMovieTrailers(movie.id);
+        console.log("trailer",trailerKey);
+        let backdrop = "";
 
         if (movie.poster_path != null) {
             posterPath = "https://image.tmdb.org/t/p/w500/" + movie.poster_path;
         } else {
             posterPath = "No_Poster.png";
+        }
+
+        console.log(trailerKey);
+        if (trailerKey != null) {
+            backdrop = `<iframe class="trailer" type="text/html"
+                        src="https://www.youtube.com/embed/${trailerKey}?autoplay=1&loop=1"
+                        frameborder="0">
+                        </iframe>`;
+        } else {
+            backdrop=`<img class="backdrop-image" src="https://image.tmdb.org/t/p/w500/${movie.backdrop_path}">`
         }
 
         console.log("https://image.tmdb.org/t/p/w500/"+movie.backdrop_path);
@@ -83,7 +96,7 @@ function displayMovies(moviesData) {
             <div class="modal" id="modal-${movie.id}" >
                 <div class="modal-content" id="modal-content'${movie.id}" >
                     <span class="close ${movie.id}" id="close-${movie.id}">&times;</span>
-                    <img class="backdrop-image" src="https://image.tmdb.org/t/p/w500/${movie.backdrop_path}">
+                    ${backdrop}
                     <h3 class="${movie.id}"> ${movie.title} </h3>
                     <p>⭐ ${movie.vote_average} / 10</p>
                     <p>Released: ${movie.release_date}</p>
