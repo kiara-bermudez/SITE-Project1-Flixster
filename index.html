@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Flixster</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="background">
+        <div id="title-area">
+            <h1 id="title"><span>Flixster</span></h1>
+        </div>
+        
+        <div id="form-area">
+            <form id="search-form">
+                <input id="search-input" type="text" name="search" placeholder="Enter a movie title">
+                <button type="submit" id="search-btn">Search movies!</button>
+                
+            </form>
+        <button type="button" class="hidden" id="close-search-btn">Back to Now Showing!</button>
+        </div>
+
+        <h2 id="movie-grid-title">Now Showing</h2>
+
+        <div id="movies-grid">
+            
+        </div>
+
+        <div id="load-more-area">
+            <button id="load-more-movies-btn" type="button" class="hidden">Load More Movies</button>
+        </div>
+    </div>
+
+    <div id="footer">
+        <img id="tmdb-logo" src="tmdb_logo.svg">
+        <p id="attribution">This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
+    </divr>
+    <script src="script.js"></script>
+    
+</body>
+</html>
