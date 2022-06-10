@@ -44,7 +44,7 @@ input[type=text] {
     border-width: 3px;
     background-color: rgb(33, 8, 8);
     color: white;
-    margin-left: 34%;
+    margin-left: 36%;
     box-shadow: #f6e27a 0 15px 30px -5px;
 }
 .hidden {
@@ -62,7 +62,7 @@ input[type=text] {
     width: 5% !important;
     font-size: 13px;
     float:right;
-    margin-right: 40%;
+    margin-right: 37%;
     font-weight: bold;
 }
 
